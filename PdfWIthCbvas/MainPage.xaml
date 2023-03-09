@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PdfWIthCbvas.MainPage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui">
+
+   <ContentPage.Content>
+
+        <Grid x:Name="myGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <BoxView Color="Green" />
+            <Label Text="Row 0, Column 0"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+         <!--<WebView x:Name="webView" Grid.Column="1" Source="https://learn.microsoft.com/dotnet/maui" />-->
+            <Slider x:Name="slider" BackgroundColor="red"  Grid.Column="1"      Maximum="2"
+                    Minimum="0.5"
+                    Value="1"
+                VerticalOptions="Start" />
+            
+
+
+
+            <BoxView Grid.Row="1"
+                     
+                 Color="Teal" />
+            <Image  Grid.Row="1" x:Name="SignatureImg" BackgroundColor="Transparent" ></Image>
+
+            <!--    <ScrollView Grid.Row="1"  Grid.Column="0" VerticalOptions="Start"  >
+                <Image VerticalOptions="Start"  BindingContext="{x:Reference Name=slider}" x:Name="imgpdf" Scale="{Binding Path=Value}" >
+                </Image>
+            </ScrollView>-->
+            <!-- Ajoutez ici les éléments de la deuxième StackLayout 
+                            <Image x:Name="SignatureImg" BackgroundColor="red"></Image>-->
+            <ScrollView Grid.Row="1"  Grid.Column="1" VerticalOptions="Start"  >
+                <StackLayout BackgroundColor="Yellow" x:Name="imageStackLayout" Orientation="Vertical" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="https://learn.microsoft.com/fr-fr/xamarin/xamarin-forms/user-interface/layouts/stacklayout-images/vertical.png"
+           x:Name="image"
+           Aspect="AspectFit"
+    />
+                        <StackLayout BackgroundColor="Transparent"
+                 x:Name="stackLayout2"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+                            <!-- Ajoutez ici les éléments de la deuxième StackLayout 
+
+                            <Image x:Name="SignatureImg" BackgroundColor="red"></Image>-->
+                        </StackLayout>
+                        <StackLayout BackgroundColor="Transparent"
+                 x:Name="stackLayout1"
+                 AbsoluteLayout.LayoutFlags="PositionProportional">
+                            <mct:DrawingView x:Name="DrawingView" 
+                                      
+                         DrawingLineCompleted="DrawingView_DrawingLineCompleted"
+                         BackgroundColor="Transparent" 
+                         LineWidth="2"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"/>
+                        </StackLayout>
+                     
+                    </Grid>
+
+                   
+                </StackLayout>
+
+            </ScrollView>
+       
+            <BoxView Grid.Row="2"
+                 Grid.ColumnSpan="2"
+                 Color="Red" />
+            <Button Grid.Row="2"
+                  Grid.ColumnSpan="2" Text="pick" Clicked="aaab"></Button>
+          
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
